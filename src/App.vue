@@ -7,8 +7,7 @@
   <ul v-if="showList">
     <li v-for="user of userList" :key="user.id">
       <label>First Name:</label> {{ user.prenom }} <label>Last Name:</label>
-      <label>email:</label> {{ user.email }}
-      {{ user.nom }}
+      {{ user.nom }} <label>email:</label> {{ user.email }}
     </li>
   </ul>
 </template>
@@ -18,7 +17,7 @@ import gql from "graphql-tag";
 import HomeScreenVue from "./components/HomeScreen.vue";
 import UserAddScreenVue from "./components/UserAddScreen.vue";
 import { useQuery } from "@vue/apollo-composable";
-import { ref, onMounted } from "vue";
+import { ref } from "vue";
 
 const ALL_USERS_QUERY = gql`
   query {
@@ -95,7 +94,6 @@ li {
   margin: 5px;
 }
 label {
-  font-size: 30px;
   color: #aaa;
   display: inline-block;
   margin: 25px 0 15px;
